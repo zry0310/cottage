@@ -5,7 +5,6 @@ import com.rycode.cottage.model.AdminInfo;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * @author ry
@@ -15,5 +14,6 @@ import java.util.Objects;
 public interface AdminInfoService extends IService<AdminInfo> {
 
     List<AdminInfo> getAdminInfoList(Map<String, Object> map);
+
     String getSalt(String name);
 }

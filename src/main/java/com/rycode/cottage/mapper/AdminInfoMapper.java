@@ -1,7 +1,7 @@
 package com.rycode.cottage.mapper;
 
 import com.rycode.cottage.model.AdminInfo;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;;import java.io.Serializable;
 
 /**
 * @author ry
@@ -10,9 +10,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;;
 * @Entity com.rycode.cottage.model.AdminInfo
 */
 public interface AdminInfoMapper extends BaseMapper<AdminInfo> {
-//    AdminInfo selectByName(String name);
 
     String searchSalt(String name);
 
-    AdminInfo searchByNameAndPassword(String name,String password);
+    @Override
+    int deleteById(Serializable id);
 }

@@ -18,7 +18,7 @@
     <sql id="Base_Column_List">
         id,name,password,
         role_ids,created_at,updated_at,
-        user_salt,is_admin
+        user_salt,is_admin,deleted_at
     </sql>
 
     <select id="selectByName" resultMap="BaseResultMap">
