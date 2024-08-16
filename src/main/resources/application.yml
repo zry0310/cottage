@@ -18,6 +18,10 @@ spring:
         max-idle: 5
         min-idle: 1
         max-wait: -1ms
+#  security:
+#    user:
+#      name: admin
+#      password: admin
 
 #mybatis-plus:
 #  global-config:

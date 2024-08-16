@@ -13,6 +13,6 @@ public interface AdminInfoMapper extends BaseMapper<AdminInfo> {
 
     String searchSalt(String name);
 
-    @Override
-    int deleteById(Serializable id);
+    AdminInfo selectByName(String name);
+
 }

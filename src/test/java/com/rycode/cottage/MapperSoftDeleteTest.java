@@ -1,6 +1,7 @@
 package com.rycode.cottage;
 
 import com.rycode.cottage.mapper.AdminInfoMapper;
+import com.rycode.cottage.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class MapperSoftDeleteTest {
 
     @Autowired
-    AdminInfoMapper adminInfoMapper;
+    UserMapper userMapper;
 
     @Test
     public void test() {
@@ -24,7 +25,7 @@ public class MapperSoftDeleteTest {
 //        map.put("password",passwordHash);
 //        List<AdminInfo> adminInfos = adminInfoMapper.selectByMap(map);
 //        System.out.println(adminInfos);
-        int code = adminInfoMapper.deleteById(2);
+        int code = userMapper.deleteById(6666);
         System.out.println(code);
     }
 }

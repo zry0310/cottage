@@ -1,37 +1,33 @@
 package com.rycode.cottage.controller;
 
-import com.rycode.cottage.model.AdminInfo;
-import com.rycode.cottage.service.AdminInfoService;
-import com.rycode.cottage.utils.MD5Util;
+import com.rycode.cottage.service.UserService;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+@Slf4j
 @RestController
 public class LoginController {
 
     @Autowired
-    AdminInfoService adminInfoService;
+    UserService userService;
 
     @PostMapping("/login")
-    public Object login(@RequestParam String name, @RequestParam String password) throws NoSuchAlgorithmException {
-        String salt = adminInfoService.getSalt(name);
-        String passwordHash = MD5Util.encrypt(password + salt);
-        Map<String, Object> map = new HashMap<>();
-        map.put("name", name);
-        map.put("password", passwordHash);
-        List<AdminInfo> adminInfos = adminInfoService.getAdminInfoList(map);
+    public Object login(@RequestParam String name, @RequestParam String password) {
+        return userService.login(name, password);
+    }
 
-        if(adminInfos.isEmpty()){
-            return null;
-        }else{
-            return adminInfos.get(0);
-        }
+    @PostMapping("/register")
+    public Object register(@RequestParam String name, @RequestParam String password) {
+        return userService.register(name, password);
+    }
+
+    @SneakyThrows
+    @PostMapping("/changePwd")
+    public Object changePwd(@RequestParam String name, @RequestParam String originPassword, @RequestParam String newPassword) {
+        return null;
     }
 }
